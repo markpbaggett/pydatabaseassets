@@ -9,9 +9,10 @@ outfile= json.loads(req)
 recordCount = 0
 
 textFile = open('databaseassets.csv', 'w')
-textFile.write('Database name,URL\n')
+textFile.write('Database name,URL, Enabled Proxy\n')
 for record in outfile:
 	recordCount += 1
-	textFile.write(record['name'] + ',' + record['url'] + '\n')
+	textFile.write(record['name'] + ',' + record['url'] + ',' + str(record['meta']['enable_proxy']) + '\n')
+textFile.close()
 
 print "\nWrote out %d records" % recordCount
